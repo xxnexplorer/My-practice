@@ -1,0 +1,48 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.x-dialog-wrapper{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.x-dialog-mask{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0.4;
+	background: #000;
+}
+.x-dialog-container{
+	width: 400px;
+	height: 300px;
+	position: relative;
+	z-index: 1;
+	margin: 100px auto;
+	border-radius: 8px;
+}
+.x-dialog-title{
+	height: 40px;
+	background: #114a7b;
+	color: white;
+	line-height: 40px;
+	padding-left: 10px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+.x-dialog-close{
+	float: right;
+	margin-right: 10px;
+	color: white;
+	cursor: pointer;
+}
+.x-dialog-content{
+	background: white;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}

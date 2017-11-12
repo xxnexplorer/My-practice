@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#clock{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			border-radius: 50%;
+			margin: 100px auto;
+			position: relative;
+		}
+		#scale{
+			list-style: none;
+		}
+		#scale li{
+			width: 2px;
+			height: 5px;
+			background: black;
+			position: absolute;
+			left: 100px;
+			-webkit-transform-origin: 1px 100px;
+		}
+		#scale li:nth-child(5n+1){
+			height: 10px;
+		}
+		#hour{
+			width: 6px;
+			height: 45px;
+			background: #000;
+			position: absolute;
+			left: 97px;
+			top: 55px;
+			-webkit-transform-origin: bottom;
+		}
+		#minute{
+			width: 4px;
+			height: 55px;
+			background: #ccc;
+			position: absolute;
+			left: 98px;
+			top: 45px;
+			-webkit-transform-origin: bottom;
+		}
+		#second{
+			width: 2px;
+			height: 65px;
+			background: red;
+			position: absolute;
+			left: 99px;
+			top: 35px;
+			-webkit-transform-origin: bottom;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<ul id="scale"></ul>
+		<div id="hour"></div>
+		<div id="minute"></div>
+		<div id="second"></div>
+	</div>
+
+	<script>
+		var oScale = document.getElementById('scale');
+		var html = '';
+		for(var i=0; i<60; i++){
+			html += '<li style="-webkit-transform: rotate('+6*i+'deg)"></li>';
+		}
+		oScale.innerHTML = html;
+		
+		var oHour = document.getElementById('hour'),
+				oMinute = document.getElementById('minute'),
+				oSecond = document.getElementById('second');
+		function run(){
+			var now = new Date();
+			var second = now.getSeconds(),
+				minute = now.getMinutes() + second/60,
+				hour = now.getHours() + minute/60;
+			oHour.style.WebkitTransform = 'rotate('+hour*30+'deg)';
+			oMinute.style.WebkitTransform = 'rotate('+minute*6+'deg)';
+			oSecond.style.WebkitTransform = 'rotate('+second*6+'deg)';
+		}
+		run();
+		setInterval(run,1000);
+	</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#small-box{
+			width: 249px;
+			height: 244px;
+			position: absolute;
+			left: 20px;
+			top: 20px;
+			border: 1px solid black;
+		}
+		#small-float{
+			width: 50px;
+			height: 50px;
+			background: gray;
+			opacity: 0.5;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+		#big-box{
+			width: 400px;
+			height: 400px;
+			overflow: hidden;
+			position: absolute;
+			left: 279px;
+			top: 20px;
+			border: 1px solid black;
+			display: none;
+		}
+		#big-pic{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="small-box">
+		<img src="./imgs/small.jpg" alt="">
+		<div id="small-float"></div>
+	</div>
+	<div id="big-box">
+		<img src="./imgs/big.jpg" alt="" id="big-pic">
+	</div>
+	<script src="./jquery-1.11.0.min.js" ></script>
+	<script>
+		// var oSmallBox = document.getElementById('small-box');
+		// var oSmallFloat = document.getElementById('small-float');
+		// var oBigBox = document.getElementById('big-box');
+		// var oBigPic = document.getElementById('big-pic');
+
+		// oSmallBox.onmouseover = function(){
+		// 	oSmallFloat.style.display = 'block';
+		// 	oBigBox.style.display = 'block';
+		// };
+
+		// oSmallBox.onmouseout = function(){
+		// 	oSmallFloat.style.display = 'none';
+		// 	oBigBox.style.display = 'none';
+		// };
+
+		// oSmallBox.onmousemove = function(e){
+		// 	e = e || window.event;
+		// 	var iLeft = e.clientX - oSmallBox.offsetLeft - oSmallFloat.offsetWidth/2;
+		// 	var iTop = e.clientY - oSmallBox.offsetTop - oSmallFloat.offsetHeight/2;
+
+		// 	if(iLeft > oSmallBox.offsetWidth - oSmallFloat.offsetWidth){
+		// 		iLeft = oSmallBox.offsetWidth - oSmallFloat.offsetWidth;
+		// 	}
+		// 	if(iLeft <0){
+		// 		iLeft = 0;
+		// 	}
+		// 	if(iTop > oSmallBox.offsetHeight - oSmallFloat.offsetHeight){
+		// 		iTop = oSmallBox.offsetHeight - oSmallFloat.offsetHeight;
+		// 	}
+		// 	if(iTop < 0){
+		// 		iTop = 0;
+		// 	}
+
+		// 	oSmallFloat.style.left = iLeft + 'px';
+		// 	oSmallFloat.style.top = iTop + 'px';
+
+		// 	var fLeft = iLeft / (oSmallBox.offsetWidth - oSmallFloat.offsetWidth);
+		// 	var fTop = iTop / (oSmallBox.offsetHeight - oSmallFloat.offsetHeight);
+		// 	oBigPic.style.left = -(oBigPic.offsetWidth - oBigBox.offsetWidth) * fLeft + 'px';
+		// 	oBigPic.style.top = -(oBigPic.offsetHeight - oBigBox.offsetHeight) * fTop + 'px';
+		// };
+
+
+		$(function(){
+			var $smallBox = $('#small-box'),
+				$smallFloat = $('#small-float'),
+				$bigBox = $('#big-box'),
+				$bigPic = $('#big-pic');
+			$smallBox.hover(function(){
+				$smallFloat.show();
+				$bigBox.show();
+			},function(){
+				$smallFloat.hide();
+				$bigBox.hide();
+			}).on('mousemove',function(e){
+				var iLeft = e.pageX - $smallBox.offset().left - $smallFloat.width()/2;
+				var iTop = e.pageY - $smallBox.offset().top - $smallFloat.height()/2;
+
+				if(iLeft > $smallBox.width() - $smallFloat.width()){
+					iLeft = $smallBox.width() - $smallFloat.width();
+				}
+				if(iLeft <0){
+					iLeft = 0;
+				}
+				if(iTop > $smallBox.height() - $smallFloat.height()){
+					iTop = $smallBox.height() - $smallFloat.height();
+				}
+				if(iTop < 0){
+					iTop = 0;
+				}
+				$smallFloat.css({
+					left: iLeft,
+					top: iTop
+				});
+
+				var fLeft = iLeft / ($smallBox.width() - $smallFloat.width());
+				var fTop = iTop / ($smallBox.height() - $smallFloat.height());
+
+				$bigPic.css({
+					left: -($bigPic.width() - $bigBox.width()) * fLeft,
+					top: -($bigPic.width() - $bigBox.width()) * fTop
+				});
+			});
+		});
+	</script>
+</body>
+</html>

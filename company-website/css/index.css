@@ -1,0 +1,201 @@
+/*intro开始*/
+#intro{
+	padding-top: 20px; 
+}
+#news{
+	height: 194px;
+}
+#company-news, #industry-trends{
+	width: 334px;
+	height: 174px;
+	float: left;
+	margin-right: 40px;
+}
+#news h3{
+	height: 29px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	line-height: 29px;
+	font-size: 15px;
+	text-indent: 20px;
+}
+#company-news h3{
+	background-image: url(../img/xw_1.png);
+	border-bottom-color: #EA3939;
+	color: #EA3939;
+}
+#industry-trends h3{
+	background-image: url(../img/xw_2.png);
+	border-bottom-color: black;
+	color: black;
+}
+#news .more{
+	float: right;
+	margin-right: 10px;
+	color: #5a5a5a;
+	font-size: 14px;
+}
+#news ul li{
+	background: url(../img/mem_message_icon.gif) no-repeat 2px center;
+	height: 29px;
+	width: 334px;
+	border-bottom: 1px dotted #cccccc;
+	text-indent: 15px;
+}
+#news .news-link{
+	color: #5a5a5a;
+	font-size: 12px;
+	line-height: 29px;
+}
+#news .news-link:hover{
+	color: #CC0000;
+}
+#news .news-date{
+	float: right;
+	font-size: 12px;
+	color: #5a5a5a;
+	line-height: 29px;
+}
+#services{
+	width: 340px;
+	height: 46px;
+	float: left; 
+}
+#services .services-item{
+	float: left;
+	width: 100px;
+	height: 46px;
+	padding-top: 125px;
+	margin-right: 20px;
+	text-align: center;
+}
+#services .title-en{
+	color: #826682;
+	font-size: 12px;
+}
+#services .title-zh{
+	margin-top: 10px;
+	height: 25px;
+}
+#services .title-zh a{
+	color: #EA3939;
+	font-size: 14px;
+	font-weight: bold;
+}
+#services .financing{
+	background: url(../img/sy_tz_1.jpg) no-repeat center top;
+}
+#services .financing:hover{
+	background: url(../img/sy_tz_1_h.jpg) no-repeat center top;
+}
+#services .funds{
+	background: url(../img/sy_tz_2.jpg) no-repeat center top;
+}
+#services .funds:hover{
+	background: url(../img/sy_tz_2_h.jpg) no-repeat center top;
+}
+#services .equity{
+	background: url(../img/sy_tz_3.jpg) no-repeat center top;
+}
+#services .equity:hover{
+	background: url(../img/sy_tz_3_h.jpg) no-repeat center top;
+}
+#about .us{
+	width: 298px;
+	height: 317px;
+	float: left;
+	margin-right: 10px;
+	border: 1px solid #cccccc;
+}
+#about .img{
+	height: 135px;
+	background: url(../img/ab_t.jpg);
+}
+#about .us p{
+	margin: 20px 10px 10px 10px;
+	color: #5a5a5a;
+	font-size: 12px;
+	line-height: 22px;
+	font-family: "Microsoft YaHei";
+}
+#about .invest{
+	width: 274px;
+	height: 315px;
+	float: left;
+	margin-right: 10px;
+	background: #f1f1f1 url(../img/yw_t.png) no-repeat right 90%;
+}
+#about .detail{
+	width: 236px;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-family: "Microsoft YaHei";
+}
+#p1{
+	color: #EA3939;
+	font-size: 15px;
+}
+#p2{
+	color: #000000;
+	font-size: 13px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+#about .detail a{
+	color: #EA3939;
+	font-size: 13px;
+	margin-top: 10px;
+}
+#about .address{
+	width: 505px;
+	height: 153px;
+	float: left;
+	margin-bottom: 10px;
+	background: #f1f1f1 url(../img/call_t.png) no-repeat left 10px;
+}
+#about .address-frame {
+	width: 265px;
+	height: 120px;
+	float: right;
+	position: relative;
+	top: 50%;
+	margin-top: -60px;
+}
+#about .address-frame p{
+	height: 30px;
+	line-height: 30px;
+	color: black;
+	font-size: 14px;
+	font-family: "Microsoft YaHei";
+}
+#about .recruit{
+	width: 505px;
+	height: 152px;
+	float: left;
+	background: #f1f1f1 url(../img/zp_t.png) no-repeat;
+}
+#about .recruit-detail{
+	width: 315px;
+	margin-top: 20px;
+	float: right;
+	margin-right: 10px;
+	font-family: "Microsoft YaHei";
+}
+#p3{
+	color: #EA3939;
+	font-size: 15px;
+}
+#p4{
+	color: #000000;
+	font-size: 13px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+#about .recruit a{
+	color: #EA3939;
+	font-size: 13px;
+	margin-top: 10px;
+}
+/*intro结束*/

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#ul1 .li1{
+			width: 120px;
+			height: 30px;
+			float: left;
+			border: 1px solid #ccc;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+			margin-right: 5px;
+		}
+		#ul2{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="li1">item 1
+			<ul id="ul2">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+			</ul>
+		</li>
+		<li class="li1">item 2
+			<ul id="ul2">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+			</ul>
+		</li>
+		<li class="li1">item 3
+			<ul id="ul2">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+			</ul>
+		</li>
+		<li class="li1">item 4
+			<ul id="ul2">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+			</ul>
+		</li>
+	</ul>
+	
+	<script>
+		var oUl1 = document.getElementById("ul1")
+		var aLi = oUl1.getElementsByTagName("li")
+		for( var i=0; i<aLi.length; i++ ){
+			if( aLi[i].className == "li1" ){
+				aLi[i].onmouseover = function(){
+					var oUl2 = this.getElementsByTagName("ul")[0];
+					oUl2.style.display = 'block';
+				};
+				aLi[i].onmouseout = function(){
+					var oUl2 = this.getElementsByTagName("ul")[0];
+					oUl2.style.display = 'none';
+				};
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		body{
+			background: #000;
+		}
+		#clock{
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="clock" width="400" height="400"></canvas>
+	<script>
+		var cvs = document.getElementById('clock');
+		var context = cvs.getContext('2d');
+
+		function draw(){
+			context.clearRect(0, 0, 400, 400);
+			//画大圆
+			context.beginPath();
+			context.arc(200, 200, 150, 0, 2*Math.PI, false);
+			context.lineWidth = 3;
+			context.stroke();
+
+			//画刻度
+			for (var i=0; i<60; i++){		
+				context.beginPath();
+				context.moveTo(200, 200);
+				context.arc(200, 200, 150, 6*i*Math.PI/180, 6*(i+1)*Math.PI/180, false);
+				context.lineWidth = 1;
+				context.stroke();
+			}
+
+			context.beginPath();
+			context.arc(200, 200, 140, 0, 2*Math.PI, false);
+			context.fillStyle = '#fff';
+			context.fill();
+
+			for(var j=0; j<12; j++){
+				context.beginPath();
+				context.moveTo(200, 200);
+				context.arc(200, 200, 150, 30*j*Math.PI/180, 30*(j+1)*Math.PI/180, false);
+				context.lineWidth = 3;
+				context.stroke();
+			}
+
+			context.beginPath();
+			context.arc(200, 200, 130, 0, 2*Math.PI, false);
+			context.fillStyle = '#fff';
+			context.fill();
+
+			//画时针
+			var now = new Date();
+			var second = now.getSeconds();
+			var minute = now.getMinutes() + second/60;
+			var hour = now.getHours() + minute/60;
+			context.beginPath();
+			context.moveTo(200, 200);
+			context.arc(200, 200, 80, (hour*30-90)*Math.PI/180, (hour*30-90)*Math.PI/180, false);
+			context.stroke();
+
+			//画分针
+			context.beginPath();
+			context.moveTo(200, 200);
+			context.arc(200, 200, 100, (minute*6-90)*Math.PI/180, (minute*6-90)*Math.PI/180, false);
+			context.lineWidth = 2;
+			context.stroke();
+
+			//画秒针
+			context.beginPath();
+			context.moveTo(200, 200);
+			context.arc(200, 200, 130, (second*6-90)*Math.PI/180, (second*6-90)*Math.PI/180, false);
+			context.lineWidth = 1;
+			context.stroke();
+		}
+
+		draw();
+
+		setInterval(draw, 1000)
+	</script>
+</body>
+</html>

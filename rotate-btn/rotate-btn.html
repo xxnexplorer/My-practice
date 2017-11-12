@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个性旋转按钮</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 800px;
+			top: 350px;
+		}
+		#container img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+		#menu li{
+			position: absolute;
+			left: 0;
+			top: 0;
+			-webkit-transition: all 0.5s;
+			width: 50px;
+			height: 50px;
+		}
+		#home{
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			-webkit-transition: all 0.5s;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="menu">
+			<li><img src="./imgs/11.jpg" alt=""></li>
+			<li><img src="./imgs/22.jpg" alt=""></li>
+			<li><img src="./imgs/33.jpg" alt=""></li>
+			<li><img src="./imgs/44.jpg" alt=""></li>
+			<li><img src="./imgs/55.jpg" alt=""></li>
+		</ul>
+		<div id="home"><img src="./imgs/66.jpg" alt=""></div>
+	</div>
+	<script>
+		var oHome = document.getElementById('home');
+		var oMenu = document.getElementById('menu');
+		var aMenu = document.getElementsByTagName('li');
+		var bFlag = true;
+		oHome.onclick = function(){
+			if(bFlag){
+				this.style.WebkitTransform = 'rotate(-360deg)';
+				for(var i=0; i<aMenu.length; i++){
+					aMenu[i].style.left = -150*Math.sin(i*90/4*(Math.PI/180)) + 'px';
+					aMenu[i].style.top = -150*Math.cos(i*90/4*(Math.PI/180)) + 'px';
+					aMenu[i].style.WebkitTransform = 'rotate(-360deg) scale(1)';
+					aMenu[i].style.WebkitTransitionDelay = '0.' + i + 's';
+				}			
+			}else{
+				this.style.WebkitTransform = 'rotate(0deg)';
+				for(var i=0; i<aMenu.length; i++){
+					aMenu[i].style.WebkitTranstionDuration = '1s';
+					aMenu[i].style.left = 0;
+					aMenu[i].style.top = 0;
+					aMenu[i].style.WebkitTransform = 'rotate(0deg) scale(1)';
+					aMenu[i].style.WebkitTransitionDelay = '0.' + (4-i) + 's';				
+				}
+			}
+			bFlag = !bFlag;
+		};
+
+
+		// for(var i=0; i<aMenu.length; i++){
+		// 	aMenu[i].index = i;
+		// 	aMenu[i].onclick = function(){
+		// 		aMenu[this.index].style.WebkitTransform = 'scale(2)';
+		// 	};
+		// }
+
+		//用闭包的方法解决页面一加载，i就变成 5 的问题，但闭包不如上面的添加 index 的方法简单，还容易造成内存泄漏。因此，本例中，上面的解决办法更好。
+		var fn = function(){
+			this.style.WebkitTranstionDuration = '0.1s';
+			this.style.WebkitTransform = 'rotate(-360deg) scale(1)';
+			this.style.opacity = 1;
+			this.removeEventListener('webkitTransitionEnd',fn,false);
+		};
+		for (var i=0; i<aMenu.length; i++){
+			aMenu[i].onclick = function(){
+				this.style.WebkitTranstionDuration = '0.3s';
+				this.style.WebkitTransform = 'rotate(-360deg) scale(2)';
+				this.style.opacity = 0.1;
+				this.addEventListener('webkitTransitionEnd',fn,false);
+			};
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./jquery.dialog-1.0.css">
+ </head>
+<body>
+	<button id="btn">open</button>
+	<script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./jquery.dialog-1.0.js"></script>
+
+ 	<script>
+		// $('#btn').on('click',function(){
+		// 	$(document.body).dialog({
+		// 		title: '创建用户',
+		// 		content: 'content.html'
+		// 	});
+		// });
+
+		var lisi = {
+			name: "lisi",
+			age: "4",
+		};
+		var ww = {
+			name: "wangwu",
+			age: "5",
+		};
+		var zs = {
+			name: "zhangsan",
+			age: "6",
+			sex: "man",
+		};
+
+		var res = Object.assign(lisi, ww, zs);
+		console.log(lisi);
+
+	</script>
+</body>
+</html>

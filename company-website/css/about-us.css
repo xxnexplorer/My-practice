@@ -1,0 +1,52 @@
+/*about-us 开始*/
+#about-us{
+	font-family: "Microsoft YaHei";
+}
+#about-us .introduce-discount{
+	width: 290px;
+	height: 622px;
+}
+#about-us .about-company{
+	height: 240px;
+	margin-bottom: 3px;
+}
+#about-us .about-company p{
+	width: 290px;
+	height: 37px;
+	border-bottom: 2px solid #EA3939;
+}
+#about-us .us{
+	width: 290px;
+	height: 37px;
+	position: relative;
+	background: url(../img/nav_title_sign.gif) no-repeat 0 center;
+	padding-left: 15px;
+	font-size: 14px;
+	color: #EA3939;
+	font-weight: bold;
+}
+#about-us .about-company li{
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background: #EFEFEF;
+	font-size: 14px;
+	font-weight: bold;
+	border-bottom: 1px solid #D0D0D0;
+}
+#about-us .about-company ul a{
+	width: 290px;
+	height: 40px;
+	float: left;
+	color: #EA3939;
+}
+#about-us .about-company ul a:hover{
+	color: black;
+	background: white;
+}
+#about-us .discount{
+	height: 340px;
+	background: red;
+	margin-top: 10px;
+}
+/*about-us 结束*/
